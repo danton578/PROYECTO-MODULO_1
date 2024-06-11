@@ -5,9 +5,6 @@ Proceso Sistema_de_costo
 	definir i, acomulador,cantidad,region Como Entero;
 	
 	
-	termino <- "NO";
-	producto <- 'aaaa';
-	
 	Escribir "Ingrese producto";
 	Leer producto;
 	
@@ -197,7 +194,7 @@ Proceso Sistema_de_costo
 	// consulta si tiene cupon de descuento
 	
 	Repetir 
-		Escribir "¿Tiene Cupon de descuento? ingrese SI o NO";
+		Escribir "Â¿Tiene Cupon de descuento? ingrese SI o NO";
 		leer tiene_cupon;
 		si Mayusculas(tiene_cupon) <> 'SI' Entonces
 			escribir " alternativa no valida";
