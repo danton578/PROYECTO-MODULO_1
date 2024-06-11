@@ -1,12 +1,9 @@
 Proceso Sistema_de_costo
 	
 	definir precio_unt,producto,termino,validador,validador_peso,peso_test,cantidad_aux,validador_cantidad,validador_cupon,tiene_cupon,a,valor_cupon_tex,region_aux ,validador_region,direccion,region_texto Como Caracter;
-	definir precio_num,iva,peso_producto,costo_envio,validador_tex,valor_cupon,cargo_lejania,cupon_cantidad,subtotal_x_cantidad,subtotal_x_cupon,subtotal_cargo_lejania,cargo_peso,subtotal_x_peso,subtotal_sin_descuento Como Real;
+	definir precio_num,iva,peso_producto,costo_envio,validador_tex,valor_cupon,cargo_lejania,cupon_cantidad,subtotal_x_cantidad,subtotal_x_cupon,subtotal_cargo_lejania,cargo_peso,subtotal_x_peso,subtotal_sin_descuento,impuestos,total_pagar Como Real;
 	definir i, acomulador,cantidad,region Como Entero;
 	
-	
-	termino <- "NO";
-	producto <- 'aaaa';
 	
 	Escribir "Ingrese producto";
 	Leer producto;
@@ -197,7 +194,7 @@ Proceso Sistema_de_costo
 	// consulta si tiene cupon de descuento
 	
 	Repetir 
-		Escribir "¿Tiene Cupon de descuento? ingrese SI o NO";
+		Escribir "Â¿Tiene Cupon de descuento? ingrese SI o NO";
 		leer tiene_cupon;
 		si Mayusculas(tiene_cupon) <> 'SI' Entonces
 			escribir " alternativa no valida";
@@ -409,7 +406,11 @@ Proceso Sistema_de_costo
 	escribir "% de recargo  por lejania: ", cargo_lejania,'%';
 	subtotal_cargo_lejania <- subtotal_x_peso*((100+cargo_lejania)/100);
 	subtotal_cargo_lejania <- redon(subtotal_cargo_lejania);
-	escribir "subtotal a pagar: ",'$',subtotal_cargo_lejania;
+	escribir "subtotal con cargo lejania: ",'$',subtotal_cargo_lejania;
+	impuestos <- 19;
+	escribir "impuesto IVA: ",impuestos,'%';
+	total_pagar <- subtotal_cargo_lejania*((100+impuestos)/100);
+	escribir "total a pagar: ','$',total_pagar;
 	
 
 FinProceso
